@@ -1,0 +1,24 @@
+{% extends 'blog/main.html' %}
+{% block main_section %}
+  {% for post in news %}
+  <div class="alert alert-light">
+    <h1>{{ post.title }}</h1>
+    <p>{{ post.text }}</p>
+    <span class="text-muted"><b>Дата:</b> {{ post.date|date:"j F Y, время:H:i:s" }}</span>
+    {% if post.author %}
+      <p><b>Автор:</b> <mark>{{ post.author }}</mark></p>
+    {% else %}
+      <p><b>Автор:</b> <mark>Админ</mark></p>
+    {% endif%}
+  </div>
+  {% endfor %}
+{% endblock main_section %}
+
+{% block aside_news_section %}
+<h3><b>10 самых популярный ЯП'ов в 2020 году</b></h3>
+<img src="https://media.proglib.io/wp-uploads/-000//1/0*Q8orlqiDox0yJG2g.jpg" class="img-thumbnail">
+<p>Лучшие языки программирования и их технологии представлены на картинке и в статье при переходе по ссылке. Приводиться много статистики а также много полезной информации, прочетав которую ты возможно выберешь в каком направлении двигаться дальше.</p>
+<a href="https://merehead.com/ru/blog/popular-programming-languages-2020/" target = "_blank">
+  <button class="btn btn-warning">Посмотреть</button>
+</a>
+{% endblock aside_news_section %}

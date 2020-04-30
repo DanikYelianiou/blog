@@ -32,6 +32,7 @@ def profile(request):
     data = {
         'img_profile': img_profile,
         'update_user': update_user,
+        'title': 'Кабинет пользователя'
     }
 
     return render(request, 'users/profile.html', data)

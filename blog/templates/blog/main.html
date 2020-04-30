@@ -11,7 +11,7 @@
 </head>
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-5">
-    <a class="navbar-brand" href="{% url 'blog-home' %}"><b>itCommunity</b></a>
+    <a class="navbar-brand" href="{% url 'blog-home' %}"><b>itBlog</b></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample09" aria-controls="navbarsExample09" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -22,12 +22,13 @@
           <a class="nav-link" href="{% url 'blog-home' %}">Главная</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'blog-contacts' %}">Про нас</a>
+          <a class="nav-link" href="{% url 'blog-contacts' %}">Связаться со мной</a>
         </li>
       </ul>
     </div>
     <div class="navbar-nav">
       {% if user.is_authenticated %}
+        <a href="{% url 'news-add' %}" class="btn btn-outline-secondary mr-2">Добавить статью</a>
         <a href="{% url 'profile' %}" class="btn btn-outline-secondary mr-2">Профиль</a>
         <a href="{% url 'exit' %}" class="btn btn-outline-secondary">Выйти</a>
       {% else %}
@@ -59,14 +60,23 @@
         </div>
 
         <div class="p-3 mb-3">
-          <img src="https://sun9-71.userapi.com/c851036/v851036862/7fb4b/j7BbWoBhA1c.jpg?ava=1" class="img-thumbnail mb-2">
-          <a href='https://live.skillbox.ru/halfprice/'>
-            <button class="btn btn-warning">Начать изучение</button>
+          <img src="data:image/png;base64,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" class="img-thumbnail mb-2">
+          <a href='https://github.com'>
+            <button class="btn btn-warning">Начать работу с Git</button>
           </a>
         </div>
       </aside>
     </div>
   </main>
+
+  <footer>
+    <div class="container">
+      <p class="float-right">
+        <a href="#">Наверх</a>
+      </p>
+      <p>Впервые на сайте? <a href="/">Посетить главную</a> или прочитать <a href="{% url 'blog-contacts' %}">про нас</a>.</p>
+    </div>
+  </footer>
 
 </body>
 </html>

@@ -1,3 +1,4 @@
+<title>Авторизания на сайте</title>
 {% extends 'blog/main.html' %}
 {% load crispy_forms_tags %}
 {% block main_section %}
@@ -8,14 +9,16 @@
       {{ form|crispy }}
       <button type="submit" class="btn btn-outline-warning">Войти</button>
     </form>
+    <hr>
+    <a href="{% url 'pass-reset' %}">Забыли пароль?</a>
   </div>
 {% endblock main_section %}
 
 {% block aside_news_section %}
-<h3><b>10 самых популярный ЯП'ов в 2020 году</b></h3>
-<img src="https://media.proglib.io/wp-uploads/-000//1/0*Q8orlqiDox0yJG2g.jpg" class="img-thumbnail">
-<p>Лучшие языки программирования и их технологии представлены на картинке и в статье при переходе по ссылке. Приводиться много статистики а также много полезной информации, прочетав которую ты возможно выберешь в каком направлении двигаться дальше.</p>
-<a href="https://merehead.com/ru/blog/popular-programming-languages-2020/" target = "_blank">
-  <button class="btn btn-warning">Посмотреть</button>
-</a>
+  <h3><b>Мой GitHub</b></h3>
+  <img src="https://media.proglib.io/wp-uploads/-000//1/0*Q8orlqiDox0yJG2g.jpg" class="img-thumbnail">
+  <p>В моем GitHub'е находятся проекты сделаные в основно на языке программирования Python. Помимо этого есть свёрстаный сайт по макету для знакомства с HTML5 и CSS3.</p>
+  <a href="https://github.com/JastSuper" target = "_blank">
+    <button class="btn btn-warning">Посмотреть</button>
+  </a>
 {% endblock aside_news_section %}

@@ -1,5 +1,7 @@
 {% extends 'blog/main.html' %}
 {% block main_section %}
+  <h2>Все статьи от автора {{ view.kwargs.username }}</h2>
+  <h4>Количество: {{ page_obj.paginator.count }}</h4>
   {% for post in news %}
   <div class="alert alert-light">
     <h1>{{ post.title }}</h1>
@@ -23,7 +25,7 @@
 
   {% if is_paginated %}
     {% if page_obj.has_previous %}
-      <a href="/" class="btn btn-outline-warning">Начало</a>
+      <a href="?page=1" class="btn btn-outline-warning">Начало</a>
       <a href="?page={{ page_obj.previous_page_namber }}" class="btn btn-outline-warning">Предыдущая</a>
     {% endif %}
 
